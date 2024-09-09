@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gwpe!w&%w5#chq!bjauw$5szlgw4f9b1*xc$^w@tm6h+s)m-bj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'daffa-naufal-capybarascorners.pbp.cs.ui.ac.id']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'daffa-naufal-capybarascorner.pbp.cs.ui.ac.id']
 
 
 # Application definition
