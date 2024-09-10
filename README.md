@@ -4,7 +4,7 @@
 4. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
 5. Mengapa model pada Django disebut sebagai ORM?
 
-
+========================= 1 =========================
 - langkah paling pertama yang saya lakukan adalah menentukan nama proyek django yang akan saya lakukan, setelah itu saya buat directory nya di local file
 - pada directory tersebut saya buat python virtual environment dengan command berikut ``python -m venv env1``
 - dalam implementasi checklist ini saya mostly lakukan dengan terminal (Powershell) dan edit file lewat VScode
@@ -30,4 +30,22 @@
 - lalu untuk mendeploy nya saya push proyeknya ke pws dengan ``git push pws master`` (main branch saya namanya dari awal master)
 - akhirnya, untuk melihat hasilnya saya bisa klik ``view project`` dalam projek di pws nya. (meskipun sejauh ini masih error, build successful tapi tidak bisa dilihat)
 
-
+========================= 2 =========================
+========================= 3 =========================
+Git membantu dalam pengembangan perangkat lunak karena punya kemampuan untuk mengelola perubahan kode, membuat kolaborasi tim menjadi mudah, menghindari konflik kode, dan memastikan kode proyek selalu dapat dipulihkan. Dalam proyek besar yang dikerjakan banyak sekali programmer, git dibutuhkan agar programmernya bisa bekerja dengan lebih efisien dan teroganisir.
+Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
+- pengelolaan proyek dengan remote repository
+- kemudahan kolaborasi dalam tim
+- versi kontrol
+- backup dan recovery data/file
+- audit dan transparansi (terlihat siapa saja yang terlibat dalam pengembangan dan penulisan kodenya)
+- menerapkan perubahan dengan aman (lewat pull request dan merge request)
+========================= 4 =========================
+- django menggunakan bahasa python sebagai dasarnya, yang mana dikenal sebagai bahasa pemrograman yang *newbie friendly*
+- django sudah menyiapkan segala macam komponen utama yang diperlukan untuk mengembangkan aplikasi web dari awal hingga akhir
+- sesuai poin sebelumnya, ini mempercepat pengembangan, yang mana kita bisa dengan cepat melihat dampak/hasil dari kode kita pada aplikasi webnya
+- struktur MVT django memperkenalkan konsep yang (menurut saya) mudah diterima dalam hal pemisahan komponen logis-logisnya
+- django ialah framework web yang terkenal, banyak yang memakai. sumber->[sumber](https://blog.jetbrains.com/pycharm/2024/06/the-state-of-django/#:~:text=Developing%20APIs%3A%20Most%20developers%20use,work%20among%20fully%20employed%20devs.)
+- dengan banyak yang memakai, komunitas django menjadi besar dan sudah banyak programmer lain yang mungkin mengalami masalah serupa juga sudah ketemu solusinya
+========================= 5 =========================
+Model pada Django disebut sebagai ORM karena data kita dalam database ditunjukkan lewat classes dan field yang memungkinkan kita tidak perlu menulis kode query SQL. Dengan ORM, pengembang dapat memetakan struktur data dalam bahasa Python ke tabel-tabel dalam database, serta memanipulasi data tersebut.
