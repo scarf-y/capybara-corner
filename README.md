@@ -32,6 +32,7 @@
 
 ========================= 2 =========================
 \\\\
+
 ========================= 3 =========================
 Git membantu dalam pengembangan perangkat lunak karena punya kemampuan untuk mengelola perubahan kode, membuat kolaborasi tim menjadi mudah, menghindari konflik kode, dan memastikan kode proyek selalu dapat dipulihkan. Dalam proyek besar yang dikerjakan banyak sekali programmer, git dibutuhkan agar programmernya bisa bekerja dengan lebih efisien dan teroganisir.
 Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
@@ -41,6 +42,7 @@ Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
 - backup dan recovery data/file
 - audit dan transparansi (terlihat siapa saja yang terlibat dalam pengembangan dan penulisan kodenya)
 - menerapkan perubahan dengan aman (lewat pull request dan merge request)
+
 ========================= 4 =========================
 - django menggunakan bahasa python sebagai dasarnya, yang mana dikenal sebagai bahasa pemrograman yang *newbie friendly*
 - django sudah menyiapkan segala macam komponen utama yang diperlukan untuk mengembangkan aplikasi web dari awal hingga akhir
@@ -48,5 +50,6 @@ Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
 - struktur MVT django memperkenalkan konsep yang (menurut saya) mudah diterima dalam hal pemisahan komponen logis-logisnya
 - django ialah framework web yang terkenal, banyak yang memakai. sumber->[sumber](https://blog.jetbrains.com/pycharm/2024/06/the-state-of-django/#:~:text=Developing%20APIs%3A%20Most%20developers%20use,work%20among%20fully%20employed%20devs.)
 - dengan banyak yang memakai, komunitas django menjadi besar dan sudah banyak programmer lain yang mungkin mengalami masalah serupa juga sudah ketemu solusinya
+
 ========================= 5 =========================
 Model pada Django disebut sebagai ORM karena data kita dalam database ditunjukkan lewat classes dan field yang memungkinkan kita tidak perlu menulis kode query SQL. Dengan ORM, pengembang dapat memetakan struktur data dalam bahasa Python ke tabel-tabel dalam database, serta memanipulasi data tersebut.
