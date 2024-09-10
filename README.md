@@ -33,7 +33,7 @@
 ========================= 2 =========================
 \\\\
 
-========================= 3 =========================
+========================= 3 =========================<br />
 Git membantu dalam pengembangan perangkat lunak karena punya kemampuan untuk mengelola perubahan kode, membuat kolaborasi tim menjadi mudah, menghindari konflik kode, dan memastikan kode proyek selalu dapat dipulihkan. Dalam proyek besar yang dikerjakan banyak sekali programmer, git dibutuhkan agar programmernya bisa bekerja dengan lebih efisien dan teroganisir.
 Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
 - pengelolaan proyek dengan remote repository
