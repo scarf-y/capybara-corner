@@ -6,7 +6,7 @@
 
 ========================= 1 =========================<br />
 - langkah paling pertama yang saya lakukan adalah menentukan nama proyek django yang akan saya lakukan, setelah itu saya buat directory nya di local file
-- pada directory tersebut saya buat python virtual environment dengan command berikut ``python -m venv env1``
+- pada directory tersebut saya buat python virtual environment dengan command berikut ``python -m venv env``
 - dalam implementasi checklist ini saya mostly lakukan dengan terminal (Powershell) dan edit file lewat VScode
 - Setiap ingin mengerjakan projek django, saya tidak lupa mengaktifkan environment tadi dalam terminal saya
 - Selanjutnya saya siapkan dependencies yang diperlukan dalam pembuatan proyek django, seperti menginstall library/package yang ada di file *requirements.txt* yang saya buat lewat command ``pip install -r requirements.txt``
