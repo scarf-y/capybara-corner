@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'capybara_corner.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'capybaras_corner.settings')
 
 application = get_wsgi_application()
