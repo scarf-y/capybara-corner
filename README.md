@@ -108,8 +108,7 @@ Foto penggunaan POSTMAN
 
 <p align="center"> 
     <img src="photos/xml.png">
+    <img src="photos/xmlbyid.png">
+    <img src="photos/json.png">
+    <img src="photos/jsonbyid.png">
 </p>
-![xml](photos/xml.png)
-![xmlid](photos/xmlbyid.png)
-![json](photos/json.png)
-![jsonbyid](photos/jsonbyid.png)
