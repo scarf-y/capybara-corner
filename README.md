@@ -64,6 +64,7 @@ Model pada Django disebut sebagai ORM karena data kita dalam database ditunjukka
 
 ========================= 1 =========================<br />
 Data delivery, dari pengertian namanya yaitu pengantaran data, hal itu diperlukan dalam pengembangan platform karena memungkinkan pertukaran informasi antara berbagai bagian dari sistem atau aplikasi, serta antara platform dan pengguna. Tanpa sistem pengiriman data yang efektif, sebuah platform tidak dapat berkomunikasi dengan komponen lain seperti database, UI, server, maupun layanan pihak ketiga. Data delivery juga penting untuk mendukung fitur-fitur seperti pengambilan data dari server ke browser, pemrosesan formulir, atau interaksi real-time, serta untuk integrasi sistem yang lebih luas dalam lingkungan aplikasi modern seperti microservices.
+
 ========================= 2 =========================<br />
 Secara umum, JSON lebih baik dibandingkan XML dalam banyak skenario, terutama untuk aplikasi web modern. Alasannya adalah sebagai berikut:
 - JSON lebih ringan: JSON memiliki struktur yang lebih sederhana dan lebih ringkas dibandingkan XML, sehingga data lebih mudah dibaca dan ukuran lebih kecil, yang membuatnya **lebih cepat** untuk dikirimkan melalui jaringan.
@@ -71,10 +72,12 @@ Secara umum, JSON lebih baik dibandingkan XML dalam banyak skenario, terutama un
 - Parsing lebih cepat: JSON dapat di-parse lebih cepat dibandingkan XML dalam kebanyakan bahasa pemrograman, termasuk JavaScript, karena desainnya yang sederhana.
   
 XML, meskipun masih digunakan, biasanya lebih cocok untuk skenario di mana data harus sangat terstruktur atau dalam lingkungan enterprise yang memerlukan skema data yang kuat, seperti di industri yang sangat teregulasi. Namun, web modern membutuhkan pertukaran data yang efisien maka JSON menjadi pilihan yang populer. Sesungguhnya, XML lebih *versatile* dari JSON, tetapi penggunaannya dalam pengembangan platform, JSON dinilai sudah cukup.
+
 ========================= 3 =========================<br />
 Method is_valid() pada form Django digunakan untuk memvalidasi data yang dikirimkan melalui form. Ketika method ini dipanggil, Django akan memeriksa apakah semua field dalam form memenuhi aturan validasi yang telah didefinisikan atau telah sesuai dengan constraint yang telah diatur (misalnya, apakah format entrynya benar, apakah semua field yang wajib diisi sudah diisi, dan sebagainya). Jika semua validasi berhasil, method ini mengembalikan nilai True, yang berarti data tersebut siap untuk diproses lebih lanjut (seperti disimpan di database). Jika tidak, method ini mengembalikan False, dan Django akan memberikan pesan error terkait masalah validasi.
 
 Kita memerlukan is_valid() untuk memastikan bahwa data yang kita terima dari pengguna tidak bermasalah atau cacat (kurang lengkap). Hal ini penting untuk mencegah penyimpanan data yang salah di database, serta menghindari potensi error atau bug yang dapat terjadi jika data yang tidak valid diproses lebih lanjut.
+
 ========================= 4 =========================<br />
 CSRF (Cross-Site Request Forgery) adalah jenis serangan siber di mana penyerang dapat memalsukan **request** dari pengguna yang sah ke server tanpa sepengetahuan atau persetujuan pengguna tersebut.
 Django menyediakan csrf_token untuk melindungi aplikasi dari serangan ini. Token CSRF adalah token unik yang dihasilkan untuk setiap form/request dari user dan harus dikirimkan bersama form saat pengguna melakukan submit. Server kemudian memverifikasi bahwa token ini valid dan terkait dengan sesi pengguna yang sah.
@@ -88,6 +91,7 @@ Penyerang mengirimkan sebuah link berbahaya atau menyisipkan skrip di situs lain
 Ketika pengguna yang login di situs A mengklik link di situs B, situs B secara diam-diam mengirimkan permintaan POST ke situs A dengan menggunakan kredensial pengguna yang sah.
 Tanpa csrf_token, server situs A tidak bisa membedakan antara permintaan yang sah dan yang dimanipulasi, sehingga tindakan yang tidak diinginkan bisa dilakukan oleh penyerang.
 source: [youtube](https://youtu.be/80S8h5hEwTY?si=oquuF6UVJfi07k8C)
+
 ========================= 5 =========================<br />
 - Pertama kali yang saya lakukan adalah membuat template html, dimulai dari membuat direktori baru bernama templates di direktori utama, lalu saya membuat file base.html disitu. Dalam base.html berisi kode html serta DTL, penggunaannya yaitu seperti template/kerangka pada umumnya, misalnya pada file html kita yang ada dalam suatu aplikasi dapat meng-extend base.html, dan area yang kita ubah sesuka hati nantinya berada dalam tag ``{% block %}`` dengan ``{% endblock %}``
 - Setelah itu, edit ``settings.py`` yang ada di direktori proyek. Edit pada bagian variable ``TEMPLATES``. kemudian pada ``main.html`` yang ada dalam direktori ../main/templates, update isinya dengan tujuan ``main.html`` meng-extend ``base.html`` dengan syntax DTL, dan juga buat kode original htmlnya untuk masuk diantara tag block dan endblock.
