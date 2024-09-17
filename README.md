@@ -33,7 +33,7 @@
 - akhirnya, untuk melihat hasilnya saya bisa klik ``view project`` dalam projek di pws nya. (meskipun sejauh ini masih error, build successful tapi tidak bisa dilihat)
 
 ========================= 2 =========================<br />
-![bagan django](baganDjangoDaffa.png)<br />
+![bagan django](photos/baganDjangoDaffa.png)<br />
 ========================= 3 =========================<br />
 Git membantu dalam pengembangan perangkat lunak karena punya kemampuan untuk mengelola perubahan kode, membuat kolaborasi tim menjadi mudah, menghindari konflik kode, dan memastikan kode proyek selalu dapat dipulihkan. Dalam proyek besar yang dikerjakan banyak sekali programmer, git dibutuhkan agar programmernya bisa bekerja dengan lebih efisien dan teroganisir.
 Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
@@ -101,3 +101,8 @@ source: [youtube](https://youtu.be/80S8h5hEwTY?si=oquuF6UVJfi07k8C)
 - Setelah itu, saya membuat fungsi untuk menampilkan data input form sebagai XML, JSON, serta versi dengan id spesifiknya. Menggunakan library django ``from django.http import HttpResponse`` dan ``from django.core import serializers``. Fungsi-fungsi ini berada di ``views.py`` pada main, semuanya mengambil data entry dari database dan mereturn HttpResponse dengan jenis delivery data yang sesuai (diset dengan serializers).
 Untuk XML dengan ID dan JSON dengan ID kita hanya perlu menambahkan filter pada objek entry form yaitu membuat Primary Key nya yaitu id.
 - Setelah membuat fungsinya di views.py, kita perlu mengatur urls.py dengan menambahkan path url pattern agar bisa diakses pengguna.
+<br/>
+![xml](photos/xml)<br />
+![xmlid](photos/xmlbyid)<br />
+![json](photos/json)<br />
+![jsonbyid](photos/jsonbyid)<br />
