@@ -1,5 +1,5 @@
 ### PWS LINK: http://daffa-naufal-capybarascorner.pbp.cs.ui.ac.id ###
-
+#### Tugas 1
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
@@ -54,3 +54,46 @@ Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
 
 ========================= 5 =========================<br />
 Model pada Django disebut sebagai ORM karena data kita dalam database ditunjukkan lewat classes dan field yang memungkinkan kita tidak perlu menulis kode query SQL. Dengan ORM, pengembang dapat memetakan struktur data dalam bahasa Python ke tabel-tabel dalam database, serta memanipulasi data tersebut.
+<br />
+#### Tugas 2
+1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+========================= 1 =========================<br />
+Data delivery, dari pengertian namanya yaitu pengantaran data, hal itu diperlukan dalam pengembangan platform karena memungkinkan pertukaran informasi antara berbagai bagian dari sistem atau aplikasi, serta antara platform dan pengguna. Tanpa sistem pengiriman data yang efektif, sebuah platform tidak dapat berkomunikasi dengan komponen lain seperti database, UI, server, maupun layanan pihak ketiga. Data delivery juga penting untuk mendukung fitur-fitur seperti pengambilan data dari server ke browser, pemrosesan formulir, atau interaksi real-time, serta untuk integrasi sistem yang lebih luas dalam lingkungan aplikasi modern seperti microservices.
+========================= 2 =========================<br />
+Secara umum, JSON lebih baik dibandingkan XML dalam banyak skenario, terutama untuk aplikasi web modern. Alasannya adalah sebagai berikut:
+- JSON lebih ringan: JSON memiliki struktur yang lebih sederhana dan lebih ringkas dibandingkan XML, sehingga data lebih mudah dibaca dan ukuran lebih kecil, yang membuatnya **lebih cepat** untuk dikirimkan melalui jaringan.
+- JSON lebih mudah dipahami: JSON berbasis objek dan memiliki format yang sangat cocok dengan sintaks JavaScript, membuatnya lebih mudah dipahami dan digunakan oleh developer yang familiar dengan JavaScript.
+- Parsing lebih cepat: JSON dapat di-parse lebih cepat dibandingkan XML dalam kebanyakan bahasa pemrograman, termasuk JavaScript, karena desainnya yang sederhana.
+  
+XML, meskipun masih digunakan, biasanya lebih cocok untuk skenario di mana data harus sangat terstruktur atau dalam lingkungan enterprise yang memerlukan skema data yang kuat, seperti di industri yang sangat teregulasi. Namun, web modern membutuhkan pertukaran data yang efisien maka JSON menjadi pilihan yang populer. Sesungguhnya, XML lebih *versatile* dari JSON, tetapi penggunaannya dalam pengembangan platform, JSON dinilai sudah cukup.
+========================= 3 =========================<br />
+Method is_valid() pada form Django digunakan untuk memvalidasi data yang dikirimkan melalui form. Ketika method ini dipanggil, Django akan memeriksa apakah semua field dalam form memenuhi aturan validasi yang telah didefinisikan atau telah sesuai dengan constraint yang telah diatur (misalnya, apakah format entrynya benar, apakah semua field yang wajib diisi sudah diisi, dan sebagainya). Jika semua validasi berhasil, method ini mengembalikan nilai True, yang berarti data tersebut siap untuk diproses lebih lanjut (seperti disimpan di database). Jika tidak, method ini mengembalikan False, dan Django akan memberikan pesan error terkait masalah validasi.
+
+Kita memerlukan is_valid() untuk memastikan bahwa data yang kita terima dari pengguna tidak bermasalah atau cacat (kurang lengkap). Hal ini penting untuk mencegah penyimpanan data yang salah di database, serta menghindari potensi error atau bug yang dapat terjadi jika data yang tidak valid diproses lebih lanjut.
+========================= 4 =========================<br />
+CSRF (Cross-Site Request Forgery) adalah jenis serangan siber di mana penyerang dapat memalsukan **request** dari pengguna yang sah ke server tanpa sepengetahuan atau persetujuan pengguna tersebut.
+Django menyediakan csrf_token untuk melindungi aplikasi dari serangan ini. Token CSRF adalah token unik yang dihasilkan untuk setiap form/request dari user dan harus dikirimkan bersama form saat pengguna melakukan submit. Server kemudian memverifikasi bahwa token ini valid dan terkait dengan sesi pengguna yang sah.
+
+Jika kita tidak menambahkan csrf_token, aplikasi kita menjadi rentan terhadap serangan CSRF. Penyerang dapat mengeksploitasi hal ini dengan mengirimkan permintaan palsu (seperti mengubah data akun atau melakukan pembelian) atas nama pengguna yang tidak menyadari bahwa mereka telah melakukan tindakan tersebut.
+
+Contoh serangan CSRF:
+
+Seorang pengguna login ke situs A.
+Penyerang mengirimkan sebuah link berbahaya atau menyisipkan skrip di situs lain (situs B).
+Ketika pengguna yang login di situs A mengklik link di situs B, situs B secara diam-diam mengirimkan permintaan POST ke situs A dengan menggunakan kredensial pengguna yang sah.
+Tanpa csrf_token, server situs A tidak bisa membedakan antara permintaan yang sah dan yang dimanipulasi, sehingga tindakan yang tidak diinginkan bisa dilakukan oleh penyerang.
+source: [youtube](https://youtu.be/80S8h5hEwTY?si=oquuF6UVJfi07k8C)
+========================= 5 =========================<br />
+- Pertama kali yang saya lakukan adalah membuat template html, dimulai dari membuat direktori baru bernama templates di direktori utama, lalu saya membuat file base.html disitu. Dalam base.html berisi kode html serta DTL, penggunaannya yaitu seperti template/kerangka pada umumnya, misalnya pada file html kita yang ada dalam suatu aplikasi dapat meng-extend base.html, dan area yang kita ubah sesuka hati nantinya berada dalam tag ``{% block %}`` dengan ``{% endblock %}``
+- Setelah itu, edit ``settings.py`` yang ada di direktori proyek. Edit pada bagian variable ``TEMPLATES``. kemudian pada ``main.html`` yang ada dalam direktori ../main/templates, update isinya dengan tujuan ``main.html`` meng-extend ``base.html`` dengan syntax DTL, dan juga buat kode original htmlnya untuk masuk diantara tag block dan endblock.
+- Selanjutnya, saya mengedit models dari app main saya, yaitu menambahkan ID untuk setiap objek pada database. ID ini berasal dari library uuid. Karena models berubah, kita perlu lakukan migrasi model.
+- Lalu, saya membuat sebuah file python baru bernama ``forms.py`` yang berisi kode untuk membuat form input data. Form yang dibuat akan berdasarkan models yang ada di ``main/models.py``. Kemudian, kita atur ``views.py`` yang ada di direktori main, untuk mengatur logic httprequst untuk form kita. Apabila form valid dan httprequest berupa POST maka akan redirect ke show_main. Pada fungsi ``show_main`` kita update untuk menerima entry dari form kita agar bisa mengambil seluruh objek entry form yang ada di databsae.
+- Selanjutnya, kita perlu mengupdate urls aplikasi kita, dengan menambahkan path untuk fungsi form kita. Lalu, saya membuat bagian front-end untuk page formnya, tentu saja file htmlnya meng-extend base.html serta berisi kode untuk meminta input user, dalam kodenya juga ditambahkan penjelas bahwa form yang dibuat menggunakan metode POST serta ada csrf token yang digunakan sebagai pencegahan serangan CSRF. Lalu dalam ``main.html`` ditambahkan kode untuk menampilkan hasil dari input form user yang disajikan dengan tabel.
+- Setelah itu, saya membuat fungsi untuk menampilkan data input form sebagai XML, JSON, serta versi dengan id spesifiknya. Menggunakan library django ``from django.http import HttpResponse`` dan ``from django.core import serializers``. Fungsi-fungsi ini berada di ``views.py`` pada main, semuanya mengambil data entry dari database dan mereturn HttpResponse dengan jenis delivery data yang sesuai (diset dengan serializers).
+Untuk XML dengan ID dan JSON dengan ID kita hanya perlu menambahkan filter pada objek entry form yaitu membuat Primary Key nya yaitu id.
+- Setelah membuat fungsinya di views.py, kita perlu mengatur urls.py dengan menambahkan path url pattern agar bisa diakses pengguna.
