@@ -1,5 +1,5 @@
 ### PWS LINK: http://daffa-naufal-capybarascorner.pbp.cs.ui.ac.id ###
-#### Tugas 1
+## Tugas 1
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
@@ -55,7 +55,7 @@ Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
 ========================= 5 =========================<br />
 Model pada Django disebut sebagai ORM karena data kita dalam database ditunjukkan lewat classes dan field yang memungkinkan kita tidak perlu menulis kode query SQL. Dengan ORM, pengembang dapat memetakan struktur data dalam bahasa Python ke tabel-tabel dalam database, serta memanipulasi data tersebut.
 <br />
-#### Tugas 2
+## Tugas 2
 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
@@ -102,6 +102,13 @@ source: [youtube](https://youtu.be/80S8h5hEwTY?si=oquuF6UVJfi07k8C)
 Untuk XML dengan ID dan JSON dengan ID kita hanya perlu menambahkan filter pada objek entry form yaitu membuat Primary Key nya yaitu id.
 - Setelah membuat fungsinya di views.py, kita perlu mengatur urls.py dengan menambahkan path url pattern agar bisa diakses pengguna.
 <br />
+<h3 align="center">
+Foto penggunaan POSTMAN
+</h3>
+
+<p align="center"> 
+    <img src="photos/xml.png">
+</p>
 ![xml](photos/xml.png)
 ![xmlid](photos/xmlbyid.png)
 ![json](photos/json.png)
