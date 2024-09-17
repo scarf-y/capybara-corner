@@ -101,8 +101,8 @@ source: [youtube](https://youtu.be/80S8h5hEwTY?si=oquuF6UVJfi07k8C)
 - Setelah itu, saya membuat fungsi untuk menampilkan data input form sebagai XML, JSON, serta versi dengan id spesifiknya. Menggunakan library django ``from django.http import HttpResponse`` dan ``from django.core import serializers``. Fungsi-fungsi ini berada di ``views.py`` pada main, semuanya mengambil data entry dari database dan mereturn HttpResponse dengan jenis delivery data yang sesuai (diset dengan serializers).
 Untuk XML dengan ID dan JSON dengan ID kita hanya perlu menambahkan filter pada objek entry form yaitu membuat Primary Key nya yaitu id.
 - Setelah membuat fungsinya di views.py, kita perlu mengatur urls.py dengan menambahkan path url pattern agar bisa diakses pengguna.
-<br/>
-![xml](photos/xml.png)<br />
-![xmlid](photos/xmlbyid.png)<br />
-![json](photos/json.png)<br />
-![jsonbyid](photos/jsonbyid.png)<br />
+<br />
+![xml](photos/xml.png)
+![xmlid](photos/xmlbyid.png)
+![json](photos/json.png)
+![jsonbyid](photos/jsonbyid.png)
