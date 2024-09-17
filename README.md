@@ -102,7 +102,7 @@ source: [youtube](https://youtu.be/80S8h5hEwTY?si=oquuF6UVJfi07k8C)
 Untuk XML dengan ID dan JSON dengan ID kita hanya perlu menambahkan filter pada objek entry form yaitu membuat Primary Key nya yaitu id.
 - Setelah membuat fungsinya di views.py, kita perlu mengatur urls.py dengan menambahkan path url pattern agar bisa diakses pengguna.
 <br/>
-![xml](photos/xml)<br />
-![xmlid](photos/xmlbyid)<br />
-![json](photos/json)<br />
-![jsonbyid](photos/jsonbyid)<br />
+![xml](photos/xml.png)<br />
+![xmlid](photos/xmlbyid.png)<br />
+![json](photos/json.png)<br />
+![jsonbyid](photos/jsonbyid.png)<br />
