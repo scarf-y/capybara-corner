@@ -113,21 +113,19 @@ Foto penggunaan POSTMAN
     <img src="photos/jsonbyid.png">
 </p>
 <br />
-## TUGAS 4<br />
+## TUGAS 4
+<br />
 1. apa perbedaan antara HttpResponseRedirect() dan redirect()<br />
-Jelaskan cara kerja penghubungan model Product dengan User!<br />
+2. Jelaskan cara kerja penghubungan model Product dengan User!<br />
 3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.<br />
 4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?<br />
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).<br />
 
-========================= 5 =========================<br />
-HttpResponseRedirect	redirect()
-Type	Class-based (HttpResponseRedirect)	Function-based (redirect())
-URL Construction	Requires manually building the URL	Can take a URL, view name, or model instance
-Flexibility	Less flexible—only works with URLs	More flexible—automatically resolves view names and model instances
-Convenience	Requires more manual work	Easier and more intuitive for many use cases
-Common Usage	Useful when you have a custom URL already constructed	Preferred when you want Django to resolve URLs
-========================= 5 =========================<br />
-========================= 5 =========================<br />
-========================= 5 =========================<br />
+========================= 1 =========================<br />
+``HttpResponseRedirect``: bertipe class-based, butuh konstruksi url secara manual, kurang flexible karena hanya bisa bekerja pada URL,
+biasanya digunakan ketika kita sudah punya URL kustom yang telah terbentuk
+``redirect()``: bertipe fungsi, dapat meredirect ke URL/model instance/view name, lebih flexible, biasanya digunakan ketika ingin djangonya sendiri yang menentukan URLnya
+========================= 2 =========================<br />
+========================= 3 =========================<br />
+========================= 4 =========================<br />
 ========================= 5 =========================<br />
