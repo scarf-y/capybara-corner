@@ -144,4 +144,17 @@ Jika kredensial valid, pengguna dianggap terotentikasi. Django kemudian memulai 
 Django menggunakan sistem otentikasi bawaan untuk memverifikasi pengguna melalui django.contrib.auth. Otentikasi ini biasanya dilakukan melalui form login di mana pengguna memasukkan username dan password, lalu Django membandingkannya dengan data di database. Kemudian, Django mengatur otorisasi menggunakan permissions dan groups. Dengan fitur ini, Anda bisa menentukan apa yang dapat dilakukan oleh pengguna. Misalnya, admin mungkin memiliki akses penuh ke seluruh situs, sementara pengguna biasa hanya memiliki akses terbatas.
 
 ========================= 4 =========================<br />
+Setelah pengguna berhasil login, Django menyimpan ID sesi di cookie pengguna (biasanya disebut sessionid). ID sesi ini adalah referensi ke data sesi yang disimpan di sisi server (misalnya di database, file, atau cache) yang berisi informasi pengguna seperti user ID.
+
+Setiap kali pengguna melakukan request baru ke server, browser akan mengirimkan cookie sessionid ini, dan Django akan menggunakan ID tersebut untuk mengambil informasi sesi yang disimpan di server. Django akan menyimpan status login pengguna dalam sesi. Saat ada permintaan HTTP, Django mengecek apakah sesi tersebut masih aktif dan memverifikasi apakah pengguna masih terautentikasi.
+
+Cookies adalah data kecil yang disimpan di browser pengguna dan dapat digunakan oleh server untuk berbagai keperluan selain manajemen sesi. Berikut kegunaan cookies,
+- Manajemen Otentikasi
+- Menyimpan Preferensi Pengguna
+- Pelacakan Aktivitas Pengguna
+- Targeting Iklan
+- Penyimpanan Sementara
+
+Tidak semua cookies aman, dan harus dikonfigurasi dengan benar menggunakan atribut seperti Secure, HttpOnly, dan SameSite untuk melindungi dari serangan seperti XSS, CSRF, dan session hijacking.
+
 ========================= 5 =========================<br />
