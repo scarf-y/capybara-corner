@@ -110,9 +110,17 @@
 </table>
 {% endif %}
 
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
 <br />
 
 <a href="{% url 'main:create_product_entry' %}">
   <button>Add New Product Entry</button>
 </a>
+
+<br />
+
+<a href="{% url 'main:logout' %}">
+    <button>Logout</button>
+  </a>
 {% endblock content %}
