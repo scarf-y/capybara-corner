@@ -127,7 +127,21 @@ Foto penggunaan POSTMAN
 biasanya digunakan ketika kita sudah punya URL kustom yang telah terbentuk
 
 ``redirect()``: bertipe fungsi, dapat meredirect ke URL/model instance/view name, lebih flexible, biasanya digunakan ketika ingin djangonya sendiri yang menentukan URLnya
+
 ========================= 2 =========================<br />
+Dengan membuat hubungan (relationship) antara user dengan objek product. Untuk melakukan hal itu, kita perlu mengubah models.py, intinya 
+relationship itu berbentuk 1 to n, dimana 1 user bisa punya banyak product, sedangkan product pasti dimiliki suatu user yang membuat product
+harus berpartisipasi secara total, maka jika dibayangkan dalam bentuk table relasionalnya, tabel product harus memiliki PK dari user dan itu 
+akan mereference ke user yang sesuai PKey nya (menjadi foreign key).
+Oleh karena itu, ketika pengisian form product, views.py akan mengambil username yang sedang terlogin sekarang dan di save sebagai bagian
+dari data formnya. Setelah itu, pada homepage akan ditampilkan product-product yang telah difilter sesuai dengan id user yang login sekarang.
+
 ========================= 3 =========================<br />
+Saat pengguna login, Pengguna memasukkan kredensial (username/password) melalui form login.
+Django mencocokkan kredensial ini dengan yang ada di database menggunakan mekanisme otentikasi bawaan (fungsi authenticate).
+Jika kredensial valid, pengguna dianggap terotentikasi. Django kemudian memulai sesi pengguna (session), menyimpan informasi pengguna terautentikasi ke dalam request.user. Setelah otentikasi, Django mengizinkan akses ke halaman yang diatur menggunakan otorisasi berdasarkan izin pengguna (misalnya, is_staff atau is_superuser), kurang lebih menentukan privilege dari user yang baru login.
+
+Django menggunakan sistem otentikasi bawaan untuk memverifikasi pengguna melalui django.contrib.auth. Otentikasi ini biasanya dilakukan melalui form login di mana pengguna memasukkan username dan password, lalu Django membandingkannya dengan data di database. Kemudian, Django mengatur otorisasi menggunakan permissions dan groups. Dengan fitur ini, Anda bisa menentukan apa yang dapat dilakukan oleh pengguna. Misalnya, admin mungkin memiliki akses penuh ke seluruh situs, sementara pengguna biasa hanya memiliki akses terbatas.
+
 ========================= 4 =========================<br />
 ========================= 5 =========================<br />
