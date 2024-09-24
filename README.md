@@ -158,3 +158,23 @@ Cookies adalah data kecil yang disimpan di browser pengguna dan dapat digunakan 
 Tidak semua cookies aman, dan harus dikonfigurasi dengan benar menggunakan atribut seperti Secure, HttpOnly, dan SameSite untuk melindungi dari serangan seperti XSS, CSRF, dan session hijacking.
 
 ========================= 5 =========================<br />
+- Pertama tidak lupa aktifkan python virtual environment, lalu masuk ke file ``views.py`` di direktori main untuk menambahkan UserCreationForm dan messages
+- tambahkan fungsi register pada ``views.py``, lalu buat front end nya ``register.html`` untuk page registration nya. Setelah itu buat pathnya di ``urls.py``
+- Lalu untuk fungsionalitas loginnya, kembali ke ``views.py`` dan tambahkan import berikut
+``from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login``
+- lalu langkah yang sama, buat fungsi login_user untuk mengatur logic user yang ingin login, lalu buat html page nya dan buat path nya di urls.py
+- Kemudian, langkah yang sama tetapi untuk membuat fungsionalitas logout user.
+- Setelah itu kita perlu merestriksi akses ke show_main / main page dengan menggunakan decorator dari import ini
+``from django.contrib.auth.decorators import login_required``
+Taruh decoratornya pada fungsi show_main di views.py dengan parameter url ke page login
+- Selanjutnya, untuk penerapan last login menggunakan cookies, diperlukan import
+``import datetime
+from django.http import HttpResponseRedirect
+from django.urls import reverse``
+Lalu edit logic pada fungsi login_user tepatnya pada block if form.is_valid(). Setelah user diloginkan kita buat response untuk redirect ke page show_main, serta atur cookie dengan key="last_login" value=str(datetime.datetime.now()) untuk dapat waktu sekarang ketika login.
+- kemudian, pada fungsi show_main kita tambahkan key value untuk last_login pada context, agar dapat kita tampilkan pada htmlnya.
+- lalu, pada fungsi logout_user kita perlu menghapus cookies last_login setelah user dilogoutkan
+- Kemudian, untuk memetakan user dengan product yang khusus untuk user tersebut, kita perlu ubah ``models.py`` pada models Product, tambahkan user sebagai foreign key untuk model product
+- Lalu update, fungsi untuk form menambahkan product untuk menambahkan user yang login sekarang sekalian dengan form ke database
+- kemudian, pada fungsi show_main, kita tidak akan mengambil semua objek Product dari database melainkan difilter terlebih dahulu sesuai dengan objek User yang login sekarang. Dan juga ganti name pada context menjadi username dari objek user.
