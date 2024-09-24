@@ -113,12 +113,12 @@ Foto penggunaan POSTMAN
     <img src="photos/jsonbyid.png">
 </p>
 <br />
-## TUGAS 4
-1. apa perbedaan antara HttpResponseRedirect() dan redirect()
-2. Jelaskan cara kerja penghubungan model Product dengan User!
-3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
-4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
-5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+## TUGAS 4<br />
+1. apa perbedaan antara HttpResponseRedirect() dan redirect()<br />
+Jelaskan cara kerja penghubungan model Product dengan User!<br />
+3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.<br />
+4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?<br />
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).<br />
 
 ========================= 5 =========================<br />
 HttpResponseRedirect	redirect()
