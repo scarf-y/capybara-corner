@@ -1,5 +1,5 @@
 ### PWS LINK: http://daffa-naufal-capybarascorner.pbp.cs.ui.ac.id ###
-## Tugas 1
+## Tugas 2
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
@@ -55,7 +55,7 @@ Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
 ========================= 5 =========================<br />
 Model pada Django disebut sebagai ORM karena data kita dalam database ditunjukkan lewat classes dan field yang memungkinkan kita tidak perlu menulis kode query SQL. Dengan ORM, pengembang dapat memetakan struktur data dalam bahasa Python ke tabel-tabel dalam database, serta memanipulasi data tersebut.
 <br />
-## Tugas 2
+## Tugas 3
 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
@@ -112,3 +112,22 @@ Foto penggunaan POSTMAN
     <img src="photos/json.png">
     <img src="photos/jsonbyid.png">
 </p>
+<br />
+## TUGAS 4
+1. apa perbedaan antara HttpResponseRedirect() dan redirect()
+2. Jelaskan cara kerja penghubungan model Product dengan User!
+3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+========================= 5 =========================<br />
+HttpResponseRedirect	redirect()
+Type	Class-based (HttpResponseRedirect)	Function-based (redirect())
+URL Construction	Requires manually building the URL	Can take a URL, view name, or model instance
+Flexibility	Less flexible—only works with URLs	More flexible—automatically resolves view names and model instances
+Convenience	Requires more manual work	Easier and more intuitive for many use cases
+Common Usage	Useful when you have a custom URL already constructed	Preferred when you want Django to resolve URLs
+========================= 5 =========================<br />
+========================= 5 =========================<br />
+========================= 5 =========================<br />
+========================= 5 =========================<br />
