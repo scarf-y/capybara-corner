@@ -113,6 +113,7 @@ Foto penggunaan POSTMAN
     <img src="photos/jsonbyid.png">
 </p>
 <br />
+
 ## TUGAS 4
 <br />
 1. apa perbedaan antara HttpResponseRedirect() dan redirect()<br />
@@ -124,6 +125,7 @@ Foto penggunaan POSTMAN
 ========================= 1 =========================<br />
 ``HttpResponseRedirect``: bertipe class-based, butuh konstruksi url secara manual, kurang flexible karena hanya bisa bekerja pada URL,
 biasanya digunakan ketika kita sudah punya URL kustom yang telah terbentuk
+
 ``redirect()``: bertipe fungsi, dapat meredirect ke URL/model instance/view name, lebih flexible, biasanya digunakan ketika ingin djangonya sendiri yang menentukan URLnya
 ========================= 2 =========================<br />
 ========================= 3 =========================<br />
