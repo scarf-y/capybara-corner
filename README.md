@@ -1,5 +1,5 @@
 ### PWS LINK: http://daffa-naufal-capybarascorner.pbp.cs.ui.ac.id ###
-## Tugas 1
+## Tugas 2
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
@@ -55,7 +55,7 @@ Berikut fungsi utama git yang membantu dalam pengembangan perangkat lunak:
 ========================= 5 =========================<br />
 Model pada Django disebut sebagai ORM karena data kita dalam database ditunjukkan lewat classes dan field yang memungkinkan kita tidak perlu menulis kode query SQL. Dengan ORM, pengembang dapat memetakan struktur data dalam bahasa Python ke tabel-tabel dalam database, serta memanipulasi data tersebut.
 <br />
-## Tugas 2
+## Tugas 3
 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
@@ -112,3 +112,69 @@ Foto penggunaan POSTMAN
     <img src="photos/json.png">
     <img src="photos/jsonbyid.png">
 </p>
+<br />
+
+## TUGAS 4
+<br />
+1. apa perbedaan antara HttpResponseRedirect() dan redirect()<br />
+2. Jelaskan cara kerja penghubungan model Product dengan User!<br />
+3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.<br />
+4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?<br />
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).<br />
+
+========================= 1 =========================<br />
+``HttpResponseRedirect``: bertipe class-based, butuh konstruksi url secara manual, kurang flexible karena hanya bisa bekerja pada URL,
+biasanya digunakan ketika kita sudah punya URL kustom yang telah terbentuk
+
+``redirect()``: bertipe fungsi, dapat meredirect ke URL/model instance/view name, lebih flexible, biasanya digunakan ketika ingin djangonya sendiri yang menentukan URLnya
+
+========================= 2 =========================<br />
+Dengan membuat hubungan (relationship) antara user dengan objek product. Untuk melakukan hal itu, kita perlu mengubah models.py, intinya 
+relationship itu berbentuk 1 to n, dimana 1 user bisa punya banyak product, sedangkan product pasti dimiliki suatu user yang membuat product
+harus berpartisipasi secara total, maka jika dibayangkan dalam bentuk table relasionalnya, tabel product harus memiliki PK dari user dan itu 
+akan mereference ke user yang sesuai PKey nya (menjadi foreign key).
+Oleh karena itu, ketika pengisian form product, views.py akan mengambil username yang sedang terlogin sekarang dan di save sebagai bagian
+dari data formnya. Setelah itu, pada homepage akan ditampilkan product-product yang telah difilter sesuai dengan id user yang login sekarang.
+
+========================= 3 =========================<br />
+Saat pengguna login, Pengguna memasukkan kredensial (username/password) melalui form login.
+Django mencocokkan kredensial ini dengan yang ada di database menggunakan mekanisme otentikasi bawaan (fungsi authenticate).
+Jika kredensial valid, pengguna dianggap terotentikasi. Django kemudian memulai sesi pengguna (session), menyimpan informasi pengguna terautentikasi ke dalam request.user. Setelah otentikasi, Django mengizinkan akses ke halaman yang diatur menggunakan otorisasi berdasarkan izin pengguna (misalnya, is_staff atau is_superuser), kurang lebih menentukan privilege dari user yang baru login.
+
+Django menggunakan sistem otentikasi bawaan untuk memverifikasi pengguna melalui django.contrib.auth. Otentikasi ini biasanya dilakukan melalui form login di mana pengguna memasukkan username dan password, lalu Django membandingkannya dengan data di database. Kemudian, Django mengatur otorisasi menggunakan permissions dan groups. Dengan fitur ini, Anda bisa menentukan apa yang dapat dilakukan oleh pengguna. Misalnya, admin mungkin memiliki akses penuh ke seluruh situs, sementara pengguna biasa hanya memiliki akses terbatas.
+
+========================= 4 =========================<br />
+Setelah pengguna berhasil login, Django menyimpan ID sesi di cookie pengguna (biasanya disebut sessionid). ID sesi ini adalah referensi ke data sesi yang disimpan di sisi server (misalnya di database, file, atau cache) yang berisi informasi pengguna seperti user ID.
+
+Setiap kali pengguna melakukan request baru ke server, browser akan mengirimkan cookie sessionid ini, dan Django akan menggunakan ID tersebut untuk mengambil informasi sesi yang disimpan di server. Django akan menyimpan status login pengguna dalam sesi. Saat ada permintaan HTTP, Django mengecek apakah sesi tersebut masih aktif dan memverifikasi apakah pengguna masih terautentikasi.
+
+Cookies adalah data kecil yang disimpan di browser pengguna dan dapat digunakan oleh server untuk berbagai keperluan selain manajemen sesi. Berikut kegunaan cookies,
+- Manajemen Otentikasi
+- Menyimpan Preferensi Pengguna
+- Pelacakan Aktivitas Pengguna
+- Targeting Iklan
+- Penyimpanan Sementara
+
+Tidak semua cookies aman, dan harus dikonfigurasi dengan benar menggunakan atribut seperti Secure, HttpOnly, dan SameSite untuk melindungi dari serangan seperti XSS, CSRF, dan session hijacking.
+
+========================= 5 =========================<br />
+- Pertama tidak lupa aktifkan python virtual environment, lalu masuk ke file ``views.py`` di direktori main untuk menambahkan UserCreationForm dan messages
+- tambahkan fungsi register pada ``views.py``, lalu buat front end nya ``register.html`` untuk page registration nya. Setelah itu buat pathnya di ``urls.py``
+- Lalu untuk fungsionalitas loginnya, kembali ke ``views.py`` dan tambahkan import berikut
+``from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login``
+- lalu langkah yang sama, buat fungsi login_user untuk mengatur logic user yang ingin login, lalu buat html page nya dan buat path nya di urls.py
+- Kemudian, langkah yang sama tetapi untuk membuat fungsionalitas logout user.
+- Setelah itu kita perlu merestriksi akses ke show_main / main page dengan menggunakan decorator dari import ini
+``from django.contrib.auth.decorators import login_required``
+Taruh decoratornya pada fungsi show_main di views.py dengan parameter url ke page login
+- Selanjutnya, untuk penerapan last login menggunakan cookies, diperlukan import
+``import datetime
+from django.http import HttpResponseRedirect
+from django.urls import reverse``
+Lalu edit logic pada fungsi login_user tepatnya pada block if form.is_valid(). Setelah user diloginkan kita buat response untuk redirect ke page show_main, serta atur cookie dengan key="last_login" value=str(datetime.datetime.now()) untuk dapat waktu sekarang ketika login.
+- kemudian, pada fungsi show_main kita tambahkan key value untuk last_login pada context, agar dapat kita tampilkan pada htmlnya.
+- lalu, pada fungsi logout_user kita perlu menghapus cookies last_login setelah user dilogoutkan
+- Kemudian, untuk memetakan user dengan product yang khusus untuk user tersebut, kita perlu ubah ``models.py`` pada models Product, tambahkan user sebagai foreign key untuk model product
+- Lalu update, fungsi untuk form menambahkan product untuk menambahkan user yang login sekarang sekalian dengan form ke database
+- kemudian, pada fungsi show_main, kita tidak akan mengambil semua objek Product dari database melainkan difilter terlebih dahulu sesuai dengan objek User yang login sekarang. Dan juga ganti name pada context menjadi username dari objek user.
