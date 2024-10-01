@@ -216,7 +216,6 @@ Deklarasi CSS yang menggunakan !important akan mengabaikan urutan spesifisitas b
 ========================= 2 =========================<br />
 Responsive design penting dalam pengembangan web karena memungkinkan tampilan situs menyesuaikan dengan ukuran layar berbagai perangkat, seperti desktop, tablet, dan smartphone. Ini penting untuk memberikan pengalaman pengguna yang baik dan memastikan website mudah diakses di mana pun.
 
-Mengapa Responsive Design Penting?
 - Pengalaman Pengguna yang Lebih Baik: Website yang responsif otomatis menyesuaikan elemen seperti teks dan gambar agar nyaman dilihat dan digunakan di perangkat apapun.
 - Meningkatkan SEO: Google lebih menyukai website yang ramah mobile, sehingga desain responsif bisa meningkatkan peringkat pencarian.
 - Efisiensi Biaya: Hanya perlu satu desain yang berfungsi di semua perangkat, menghemat waktu dan biaya pengembangan.
@@ -252,3 +251,10 @@ Grid layout bekerja di dua dimensi (baris dan kolom), memungkinkan pengaturan el
 Keduanya memudahkan pengaturan tata letak responsif dan fleksibel. Flexbox lebih baik untuk tata letak sederhana dalam satu dimensi, sementara Grid lebih cocok untuk tata letak dua dimensi yang lebih kompleks.
 
 ========================= 5 =========================<br />
+- mengatur static files pada ``settings.py`` di direktori proyek. Untuk proyek ini saya menggunakan tailwind. Tambahkan script cdn tailwind pada ``base.html``.
+- Lalu, pergi ``views.py`` untuk menambahkan fitur edit_product dan delete_product, dengan mengambil objek productnya sesuai primary key id objek nya. Untuk edit_product ambil formnya dengan isi sesuai dengan si objek yang ingin diedit lalu jika form valid save form baru itu. Untuk delete_product kita tinggal lakukan method delete. Lalu buat path nya di ``urls.py`` dan buat html nya untuk edit_mood.
+- Lalu pada main.html tambahkan button yang merujuk ke edit dan delete sebagai table data untuk tiap row.
+- Kemudian pada direktori utama pada file templates buat navbar.html dan isinya sesuai kreasi saya dengan bantuan AI. Juga menambahkan fungsionalitas untuk pengguna mobile.
+- Navbar ini menunjukkan nama aplikasi, logo, beberapa button, tombol logout. Lalu pada ``settings.py`` direktori proyek tambahkan middleware whitenoise. Dengan menambahkan middleware WhiteNoise pada settings.py, Django dapat mengelola file statis secara otomatis dalam mode produksi (DEBUG=False) tanpa perlu konfigurasi yang kompleks. Hal ini berguna agar file statis tersebut bisa diakses di deployment kamu sebab secara default, apabila DEBUG=False maka Django tidak akan menyediakan akses ke file statis.
+-  Lalu buat ``global.css`` yang berisi defined class dengan styling nya yang lalu dihubungkan ke base.html.
+-  Setelah itu tinggal styling lanjutan untuk html-html di main/templates seperti pada main.html, login.html, register.html, edit_product, dan create_product_entry. Dalam main, edit, dan create include navbar.html. Lalu untuk main buat card_info.html serta card_product.html untuk menunjukkan objek/produk yang telah kita entry.
