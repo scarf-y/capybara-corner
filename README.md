@@ -178,3 +178,43 @@ Lalu edit logic pada fungsi login_user tepatnya pada block if form.is_valid(). S
 - Kemudian, untuk memetakan user dengan product yang khusus untuk user tersebut, kita perlu ubah ``models.py`` pada models Product, tambahkan user sebagai foreign key untuk model product
 - Lalu update, fungsi untuk form menambahkan product untuk menambahkan user yang login sekarang sekalian dengan form ke database
 - kemudian, pada fungsi show_main, kita tidak akan mengambil semua objek Product dari database melainkan difilter terlebih dahulu sesuai dengan objek User yang login sekarang. Dan juga ganti name pada context menjadi username dari objek user.
+<br />
+
+## TUGAS 5
+<br />
+1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+<br />
+
+========================= 1 =========================<br />
+Prioritas pengambilan CSS selector untuk suatu elemen HTML ditentukan berdasarkan spesifisitas. Spesifisitas ini menghitung tingkat "prioritas" dari masing-masing selector yang diterapkan pada elemen tersebut. Dalam penerapan spesifitasnya, ada dua aturan tambahan, yaitu:
+- Spesifisitas Kombinasi: Jika ada kombinasi selector (misalnya, selector elemen dengan class), spesifisitasnya dijumlahkan. Sebagai contoh, selector div.highlight lebih spesifik dibanding div atau .highlight saja.
+- Urutan Kemunculan: Jika dua selector memiliki spesifisitas yang sama, aturan yang muncul terakhir dalam file CSS akan diterapkan.
+
+Berikut urutan prioritasnya dari yang paling rendah sampai tinggi:
+1. Elemen HTML / Type Selector
+Selector yang menggunakan nama tag HTML langsung (misalnya, p, h1, div).
+Ini memiliki spesifisitas yang paling rendah.
+2. Class Selector
+Selector yang menggunakan . diikuti dengan nama kelas (misalnya, .class-name).
+Spesifisitasnya lebih tinggi dibanding selector tag.
+3. Attribute Selector dan Pseudo-Class Selector
+Selector yang memilih elemen berdasarkan atribut atau kondisi pseudo-class (misalnya, [type="text"], :hover, :focus, :nth-child()).
+Spesifisitasnya selevel dengan class selector.
+4. ID Selector
+Selector yang menggunakan # diikuti dengan nama ID (misalnya, #id-name).
+Ini memiliki spesifisitas yang lebih tinggi dibanding class dan pseudo-class.
+5. Inline Style
+CSS yang didefinisikan langsung dalam elemen HTML menggunakan atribut style.
+Spesifisitasnya lebih tinggi dibanding semua selector lainnya kecuali !important.
+6. Important Rule (!important)
+Deklarasi CSS yang menggunakan !important akan mengabaikan urutan spesifisitas biasa dan menjadi prioritas tertinggi.
+Catatan: Penggunaan !important sebaiknya diminimalkan karena dapat membuat CSS sulit untuk di-maintain.
+
+========================= 2 =========================<br />
+========================= 3 =========================<br />
+========================= 4 =========================<br />
+========================= 5 =========================<br />
