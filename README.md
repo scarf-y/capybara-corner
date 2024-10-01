@@ -182,10 +182,10 @@ Lalu edit logic pada fungsi login_user tepatnya pada block if form.is_valid(). S
 
 ## TUGAS 5
 <br />
-1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
-2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
-3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
-4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!<br />
+2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!<br />
+3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!<br />
+4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!<br />
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 <br />
 
@@ -211,10 +211,44 @@ Ini memiliki spesifisitas yang lebih tinggi dibanding class dan pseudo-class.
 CSS yang didefinisikan langsung dalam elemen HTML menggunakan atribut style.
 Spesifisitasnya lebih tinggi dibanding semua selector lainnya kecuali !important.
 6. Important Rule (!important)
-Deklarasi CSS yang menggunakan !important akan mengabaikan urutan spesifisitas biasa dan menjadi prioritas tertinggi.
-Catatan: Penggunaan !important sebaiknya diminimalkan karena dapat membuat CSS sulit untuk di-maintain.
+Deklarasi CSS yang menggunakan !important akan mengabaikan urutan spesifisitas biasa dan menjadi prioritas tertinggi. Penggunaan !important sebaiknya diminimalkan karena dapat membuat CSS sulit untuk di-maintain.
 
 ========================= 2 =========================<br />
+Responsive design penting dalam pengembangan web karena memungkinkan tampilan situs menyesuaikan dengan ukuran layar berbagai perangkat, seperti desktop, tablet, dan smartphone. Ini penting untuk memberikan pengalaman pengguna yang baik dan memastikan website mudah diakses di mana pun.
+
+Mengapa Responsive Design Penting?
+- Pengalaman Pengguna yang Lebih Baik: Website yang responsif otomatis menyesuaikan elemen seperti teks dan gambar agar nyaman dilihat dan digunakan di perangkat apapun.
+- Meningkatkan SEO: Google lebih menyukai website yang ramah mobile, sehingga desain responsif bisa meningkatkan peringkat pencarian.
+- Efisiensi Biaya: Hanya perlu satu desain yang berfungsi di semua perangkat, menghemat waktu dan biaya pengembangan.
+- Penggunaan Mobile yang Tinggi: Pengguna internet semakin banyak yang mengakses dari smartphone, sehingga desain responsif membantu menjangkau lebih banyak pengguna.
+Contoh Aplikasi:
+Sudah Responsif:
+Spotify dan Discord menyesuaikan tampilan agar tetap mudah digunakan baik di desktop maupun mobile.
+Belum Responsif:
+Beberapa website perusahaan lama dan forum jadul belum mendukung desain yang baik untuk perangkat mobile, sehingga tampilan di layar kecil sulit diakses. seperti [aren.cs.ui.ac.id](http://aren.cs.ui.ac.id/sda/index.php).
+
 ========================= 3 =========================<br />
+Margin, border, dan padding adalah elemen penting dalam pengaturan ruang pada desain web.
+Margin: Ruang di luar elemen yang memisahkannya dari elemen lain. Fungsinya untuk memberi jarak antar elemen.
+``margin: 20px;``
+
+Border: Garis pembatas di sekitar elemen yang membungkus isi elemen dan padding.
+``border: 2px solid black;``
+
+Padding: Ruang di dalam elemen, antara konten dan border. Ini memberi jarak antara teks atau gambar dan pinggiran elemen.
+``padding: 15px;``
+
+Ketiganya membantu mengatur tampilan layout agar lebih rapi dan terstruktur.
+
 ========================= 4 =========================<br />
+Dua sistem tata letak yang digunakan dalam CSS untuk mengatur elemen di halaman web adalah Flexbox dan Grid Layout.
+
+Flexbox (Flexible Box Layout):
+Flexbox dirancang untuk mengatur elemen dalam satu dimensi (horizontal atau vertikal). Elemen di dalam flex container bisa otomatis disesuaikan untuk mengisi ruang yang tersedia, membuatnya ideal untuk tata letak responsif. Digunakan untuk mengatur elemen yang berbaris (seperti tombol navigasi atau kartu produk) atau menyesuaikan ukuran item secara dinamis dalam satu baris atau kolom.
+
+Grid Layout:
+Grid layout bekerja di dua dimensi (baris dan kolom), memungkinkan pengaturan elemen di berbagai posisi dalam grid. Ini memberi lebih banyak kontrol untuk membuat tata letak kompleks seperti dashboard atau galeri, bayangkan seperti menaruh elemen pada diagram kartesius. Cocok untuk struktur tata letak yang lebih kompleks, seperti halaman yang membutuhkan area konten berbeda-beda dalam kolom dan baris.
+
+Keduanya memudahkan pengaturan tata letak responsif dan fleksibel. Flexbox lebih baik untuk tata letak sederhana dalam satu dimensi, sementara Grid lebih cocok untuk tata letak dua dimensi yang lebih kompleks.
+
 ========================= 5 =========================<br />
