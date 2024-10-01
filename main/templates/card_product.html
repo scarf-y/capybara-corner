@@ -1,0 +1,52 @@
+<div class="relative break-inside-avoid">
+    <!-- Soft Earthy Horizontal Bars -->
+    <div class="absolute top-2 z-10 left-1/2 -translate-x-1/2 flex items-center space-x-2">
+        <div class="w-[3rem] h-8 bg-[#C49A6C] rounded-md opacity-90"></div>
+        <div class="w-[3rem] h-8 bg-[#C49A6C] rounded-md opacity-90"></div>
+    </div>
+
+    <!-- Capybara-Themed Product Card -->
+    <div class="relative top-5 bg-[#F5EAD4] shadow-lg rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-[#D1A569] transform rotate-1 hover:rotate-0 transition-transform duration-300">
+        <!-- Product Name and Price Section -->
+        <div class="bg-[#EDD8B4] text-[#4B3F2F] p-4 rounded-t-lg border-b-2 border-[#D1A569]">
+            <h3 class="font-bold text-2xl mb-1">{{ product_entry.name }}</h3>
+            <p class="text-[#806040] font-medium">Price: ${{ product_entry.price }}</p>
+        </div>
+
+        <!-- Description Section with playful earthy colors -->
+        <div class="p-4">
+            <p class="font-semibold text-lg text-[#5A3F30] mb-2">Description</p>
+            <p class="text-[#5A3F30] text-md">{{ product_entry.description }}</p>
+        </div>
+
+        <!-- Chill Meter Section -->
+        <div class="p-4 bg-[#F5F0E0] rounded-b-lg">
+            <p class="font-semibold text-lg text-[#5A3F30] mb-2">Chill Meter</p>
+            <p class="text-[#806040] mb-2">
+                <span class="bg-[linear-gradient(to_bottom,transparent_0%,transparent_calc(100%_-_1px),#FBE4B7_calc(100%_-_1px))] bg-[length:100%_1.5rem] pb-1">
+                    {{ product_entry.chill_level }} / 100
+                </span>
+            </p>
+
+            <!-- Chill Level Progress Bar -->
+            <div class="mt-4">
+                <p class="text-[#806040] font-medium mb-1">Chill Intensity</p>
+                <div class="relative pt-1">
+                    <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-[#EDD8B4]">
+                        <div style="width:{{ product_entry.chill_level }}%" class="flex flex-col text-center text-white justify-center bg-[#A3C893]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons below Chill Meter -->
+        <div class="flex justify-between p-4">
+            <a href="{% url 'main:edit_product' product_entry.pk %}" class="bg-[#9AD8B6] hover:bg-[#86C29F] text-white rounded-lg py-2 px-4 transition duration-300 shadow-md text-center">
+                Edit
+            </a>
+            <a href="{% url 'main:delete_product' product_entry.pk %}" class="bg-[#FFAC99] hover:bg-[#E99A87] text-white rounded-lg py-2 px-4 transition duration-300 shadow-md text-center">
+                Delete
+            </a>
+        </div>
+    </div>
+</div>

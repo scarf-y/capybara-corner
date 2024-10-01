@@ -1,84 +1,43 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>Create Product</title> 
+{% endblock meta %}
+
 {% block content %}
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        color: #333;
-        margin: 0;
-        padding: 20px;
-    }
+{% include 'navbar.html' %}
 
-    h1 {
-        color: #2c3e50;
-        text-align: center;
-        margin-bottom: 40px;
-    }
+<div class="flex flex-col min-h-screen bg-amber-100">
+  <div class="container mx-auto px-4 py-8 mt-16 max-w-xl">
+    <h1 class="text-4xl font-extrabold text-center mb-8 text-green-900">Create Product Entry</h1>
 
-    form {
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 10px;
-    }
-
-    table, td {
-        padding: 10px;
-        font-size: 16px;
-    }
-
-    input[type="submit"] {
-        background-color: #2ecc71;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        text-align: center;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
-    input[type="submit"]:hover {
-        background-color: #27ae60;
-    }
-
-    td:first-child {
-        text-align: right;
-        font-weight: bold;
-        padding-right: 20px;
-        color: #34495e;
-    }
-
-    td:last-child input {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-
-</style>
-
-<h1>Add New Product Entry</h1>
-
-<form method="POST">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-    <tr>
-      <td></td>
-      <td>
-        <input type="submit" value="Add Product Entry" />
-      </td>
-    </tr>
-  </table>
-</form>
+    <div class="bg-amber-200 border-2 border-green-700 shadow-lg rounded-2xl p-6 form-style">
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="flex flex-col">
+            <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-green-900">
+              {{ field.label }}
+            </label>
+            <div class="w-full">
+              {{ field }}
+            </div>
+            {% if field.help_text %}
+              <p class="mt-1 text-sm text-green-800">{{ field.help_text }}</p>
+            {% endif %}
+            {% for error in field.errors %}
+              <p class="mt-1 text-sm text-red-600">{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <div class="flex justify-center mt-6">
+          <button type="submit" class="bg-green-700 text-white font-bold px-6 py-3 rounded-lg hover:bg-green-800 transition-transform duration-300 ease-in-out transform hover:scale-105 w-full">
+            Create Product Entry
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
