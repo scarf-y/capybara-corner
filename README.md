@@ -259,6 +259,7 @@ Keduanya memudahkan pengaturan tata letak responsif dan fleksibel. Flexbox lebih
 -  Lalu buat ``global.css`` yang berisi defined class dengan styling nya yang lalu dihubungkan ke base.html.
 -  Setelah itu tinggal styling lanjutan untuk html-html di main/templates seperti pada main.html, login.html, register.html, edit_product, dan create_product_entry. Dalam main, edit, dan create include navbar.html. Lalu untuk main buat card_info.html serta card_product.html untuk menunjukkan objek/produk yang telah kita entry.
 <br />
+
 ## TUGAS 6
 <br />
 1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!<br />
@@ -295,4 +296,10 @@ Proteksi dari Serangan: Serangan seperti XSS (Cross-Site Scripting) atau SQL Inj
 Meskipun validasi di frontend membantu mempercepat proses input bagi pengguna, backend tetap bertanggung jawab sebagai otoritas terakhir yang memastikan integritas dan keamanan data.
 
 ========================= 5 =========================<br />
-- Menambahkan error message pada login function pada views.py.
+- Menambahkan error message pada login function pada views.py. Lalu buat fungsi untuk membuat data product baru dengan ajax di views.py.
+- dari request.POST didapat data/isian formnya. Setelah itu update urls.py untuk routing dari function baru ini.
+- Lalu untuk menampilkan data dari AJAX nya kita perlu mengubah kode html main. Ubah kode menunjukkan data yang sebelumnya, lalu buat script javascript asynchronous yang akan melakukan ``fetch`` ke page ``../show_json`` yang setelah itu di parse.
+- Lalu buat juga fungsi async yang akan menunjukkan data data produk user, sesuai dengan length dari productEntries dari hasil fungsi sebelumnya, isi html nya juga dibedakan.
+- Kemudian, kita perlu membuat form untuk fungsi penambahan product dengan AJAX ini sendiri. Untuk ini kita menggunakan modal yang mana bukan bawaan dari tailwind, maka perlu kode script tambahan. Sekarang modal belum dapat menambahkan data, maka kita membuat fungsi JavaScript baru untuk menambahkan data berdasarkan input ke basis data secara AJAX. Yaitu dengan menambahkan script javascript lagi. Alurnya kita fetch data dari page add product by Ajax yang mana page modal yang sebelumnya sudah dibuat, lalu kita perlu menjalankan fungsi refresh entries.
+- Kemudian, kita perlu mengupdate/membersihkan input data pada form kita agar web terlindungi dari XSS. Bisa kita lakukan dengan menggunakan fungsi strip_tags pada data (pada fungsi ``add by ajax`` di views.py dan buat fungsi baru di ``forms.py``). Ini perlu diterapkan pada field yang menerima karakter/string.
+- strip_tags ini hanya membersihkan data yang baru, data lama yang masih kotor tidak akan terpengaruh di database, kecuali kita langsung ubah manual. Oleh karena itu kita akan menggunakan DOM purify, library javascript, yang mana dapat diterapkan dengan menambahkan script pada tags head, ``<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>`` di main.html. Setelah itu pada fungsi refresh data product kita tinggal menggunakan fungsi DOMPurify.sanitize(data) pada datafield yang diperlukan.
