@@ -258,3 +258,41 @@ Keduanya memudahkan pengaturan tata letak responsif dan fleksibel. Flexbox lebih
 - Navbar ini menunjukkan nama aplikasi, logo, beberapa button, tombol logout. Lalu pada ``settings.py`` direktori proyek tambahkan middleware whitenoise. Dengan menambahkan middleware WhiteNoise pada settings.py, Django dapat mengelola file statis secara otomatis dalam mode produksi (DEBUG=False) tanpa perlu konfigurasi yang kompleks. Hal ini berguna agar file statis tersebut bisa diakses di deployment kamu sebab secara default, apabila DEBUG=False maka Django tidak akan menyediakan akses ke file statis.
 -  Lalu buat ``global.css`` yang berisi defined class dengan styling nya yang lalu dihubungkan ke base.html.
 -  Setelah itu tinggal styling lanjutan untuk html-html di main/templates seperti pada main.html, login.html, register.html, edit_product, dan create_product_entry. Dalam main, edit, dan create include navbar.html. Lalu untuk main buat card_info.html serta card_product.html untuk menunjukkan objek/produk yang telah kita entry.
+<br />
+## TUGAS 6
+<br />
+1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!<br />
+2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?<br />
+3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?<br />
+4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?<br />
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!<br />
+========================= 1 =========================<br />
+- Interaktivitas: JavaScript memungkinkan pengguna untuk berinteraksi langsung dengan elemen halaman web tanpa perlu melakukan reload, seperti validasi form secara langsung, animasi, dan perubahan tampilan dinamis.
+- User Experience (UX) yang Lebih Baik: Dengan JavaScript, aplikasi web dapat merespons tindakan pengguna secara real-time, meningkatkan kecepatan dan fleksibilitas interaksi.
+- Manipulasi DOM (Document Object Model): JavaScript memungkinkan perubahan struktur HTML (DOM) secara dinamis, seperti menambah atau menghapus elemen tanpa memuat ulang halaman. Biasanya perubahan terjadi ketika ada suatu event.
+- Kompatibilitas dengan Backend: JavaScript dapat digunakan di backend (Node.js) maupun frontend, memungkinkan pengembangan aplikasi full-stack dengan bahasa yang konsisten.
+- AJAX (Asynchronous JavaScript and XML): Membantu dalam komunikasi asynchronous antara browser dan server, memungkinkan aplikasi untuk memperbarui data tanpa memuat ulang seluruh halaman. Ini memungkinkan untuk melakukan proses lain tanpa harus menunggu response dari server.
+
+========================= 2 =========================<br />
+Fungsi await dalam fetch(): await digunakan untuk menunggu hasil dari operasi asynchronous, seperti fetch(), yang mengembalikan promise. Fungsi ini menunda eksekusi kode berikutnya sampai promise diselesaikan (resolved) atau gagal (rejected). Saat kita menggunakan await, kode menjadi lebih mudah dibaca karena menyerupai alur sinkron.
+
+Tanpa await: Jika kita tidak menggunakan await, fetch() akan mengembalikan promise yang belum selesai, sehingga kita tidak akan mendapatkan hasil yang diinginkan (seperti response body) sebelum promise tersebut diselesaikan. Hasilnya, data dari request mungkin tidak siap pada saat kita ingin menggunakannya.
+
+========================= 3 =========================<br />
+Fungsi Decorator csrf_exempt pada AJAX POST: Django menggunakan token CSRF (Cross-Site Request Forgery) untuk melindungi form POST dari serangan CSRF. Namun, ketika kita menggunakan AJAX untuk mengirimkan data POST, terutama pada API atau endpoint tertentu, CSRF token mungkin tidak terkirim dengan benar atau tidak diperlukan.
+
+Decorator csrf_exempt digunakan untuk mengecualikan view tertentu dari validasi CSRF, sehingga memungkinkan request POST dikirim tanpa validasi token CSRF. Ini penting saat kita berinteraksi dengan API atau saat kita mengirimkan data melalui AJAX yang tidak mengirimkan token CSRF.
+
+Namun, pengecualian ini harus dilakukan dengan hati-hati karena dapat membuka celah keamanan jika tidak diproteksi dengan cara lain.
+
+========================= 4 =========================<br />
+Keamanan: Validasi di frontend bisa dengan mudah di-bypass oleh pengguna berpengalaman, atau melalui alat seperti Postman atau curl. Pembersihan di backend memastikan data yang masuk ke sistem telah diproses dengan benar, terlepas dari sumbernya.
+
+Konsistensi: Backend memiliki kontrol penuh atas alur data, memastikan bahwa semua data yang masuk ke database telah melalui pembersihan dan validasi yang benar, tanpa mengandalkan perilaku browser pengguna.
+
+Proteksi dari Serangan: Serangan seperti XSS (Cross-Site Scripting) atau SQL Injection dapat dicegah dengan pembersihan dan validasi di backend. Jika hanya dilakukan di frontend, serangan semacam ini masih bisa berhasil.
+
+Meskipun validasi di frontend membantu mempercepat proses input bagi pengguna, backend tetap bertanggung jawab sebagai otoritas terakhir yang memastikan integritas dan keamanan data.
+
+========================= 5 =========================<br />
+- Menambahkan error message pada login function pada views.py.
