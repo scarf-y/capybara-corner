@@ -26,13 +26,21 @@ SECRET_KEY = 'django-insecure-gwpe!w&%w5#chq!bjauw$5szlgw4f9b1*xc$^w@tm6h+s)m-bj
 PRODUCTION = os.getenv("PRODUCTION", False)
 DEBUG = not PRODUCTION
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'daffa-naufal-capybarascorner.pbp.cs.ui.ac.id']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'daffa-naufal-capybarascorner.pbp.cs.ui.ac.id', '10.0.2.2']
 
 
 # Application definition
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
 
 INSTALLED_APPS = [
     'main',
+    'authentication',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
